@@ -9,9 +9,20 @@ print "\nAddition of a and b:-"
 print a+b
 print "add"+ `b`
 
-print("CALCULATOR:-")
-print("type 1.Addition")
+print("\nCALCULATOR:-")
+print("\ntype 1.Addition")
 a=input("enter the value of a:-")
 b=input("enter the value of b:-")
 print "the value of addition is:-" + `a+b`
+
+print "\ntype 2.Subtraction"
+a=input("enter the value of a:-")
+b=input("enter the value of b:-")
+print "the value of subtraction is:-" + `a-b`
+
+print("\ntype 1.multiplication")
+a=input("enter the value of a:-")
+b=input("enter the value of b:-")
+print "the value of multiplication is:-" + `a*b`
+
 
