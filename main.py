@@ -1,9 +1,15 @@
-print "let's get started!"
-print "welcome to spy chat application..."
-spy_name=raw_input("please provide your name here..")
-spy_salutation=raw_input("what should we call you ?: " )
-#conatenation of salutation and name
-#spy_name =spy_salutation + " " + spy_name (this is called reassignment)
-print"WELCOME " + spy_salutation + " " + spy_name + " glad to have you back with us "
+print "               WELCOME TO SPY  \n                   CHAT"
+spy_name=raw_input("Please provide your name here--")
+if len(spy_name)>0:
 
-print"hello" +"\n    world" +"\n      can you"+"\n          print this"
+    spy_salutation = raw_input("What should we call you (MR or MISS)?-- ")
+if len(spy_salutation) > 0:
+
+    print"Welcome " + spy_salutation + " " + spy_name + " glad to have you back with us ! "
+else:
+    print "Sorry,name cannot be blank!"
+
+
+#conatenation of salutation and name
+
+#spy_name =spy_salutation + " " + spy_name (this is called reassignment)

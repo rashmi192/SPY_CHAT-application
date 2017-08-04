@@ -1,5 +1,6 @@
 print("\nCALCULATOR:-")
-a=input("enter your choice :- 1.addition \n 2.subtraction \n 3.multiplication \n 4.division\n")
+
+a=int(raw_input("enter your choice :- 1.addition \n 2.subtraction \n 3.multiplication \n 4.division\n"))
 b=input("enter the  first value:-")
 c=input("enter the second value:-")
 if a==1:
