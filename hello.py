@@ -7,8 +7,7 @@ a=4587
 b=98600
 print "\nAddition of a and b:-"
 print a+b
-print "add"+ `b`
-
+print "add"+ `(a+b)`
 print("\nCALCULATOR:-")
 print("\ntype 1.Addition")
 a=input("enter the value of a:-")
