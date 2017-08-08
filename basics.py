@@ -1,6 +1,7 @@
 list = [ 'abcd', 123 , 2.23, 'john', 70.2 ]
 tinylist = [123, 'john']
-
+a=0
+print type(a)#to check data type
 print list          # Prints complete list
 print list[0]       # Prints first element of the list
 print list[1:3]     # Prints elements starting from 2nd till 3rd
