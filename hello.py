@@ -1,4 +1,5 @@
-print"hello friends!"
+print'hello friends!'
+
 a="\nRASHMI"
 b="PANDEY"
 print type(b)#to check datatype of b
@@ -7,7 +8,6 @@ print a+b
 a=4587
 b=98600
 print "\nAddition of a and b:-"
-
 print "add"+ ""+`(a+b)`
 print("\nCALCULATOR:-")
 print("\ntype 1.Addition")
