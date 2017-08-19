@@ -1,10 +1,16 @@
 from select_friend import select_friend
-import steganography.steganography
+from steganography.steganography import Steganography
+
 def send_message():
-    friend_choice=select_friend()
-#prepare a message
-    original_message=raw_input('please enter image to hide messages:-')
-    output_image=raw_input('please provide output to image:-')
-    text=raw_input('enter your message:-')
-    #encrypt the message
-    steganography.steganography.Steganography.encode(original_message, output_image, text)
+    # choose a friend from the list.
+    friend_choice = select_friend()
+
+    # prepare the message
+    original_image = raw_input("Provide the name of the image to hide the message : ")
+    output_image = raw_input("Provide the name of the output image  : ")
+    text = raw_input("Enter your message here : ")
+    # Encrypt the message
+    Steganography.encode(original_image, output_image, text)
+
+    # Successful message
+    print "Your message encrypted successfully."
