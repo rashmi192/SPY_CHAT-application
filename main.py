@@ -12,10 +12,10 @@ if (existing.upper() == "Y") :
     spy_name = spy['salutation'] + " " + spy['name']
 
     # starting chat application.
-    start_chat(spy['name'], spy['age'], spy['rating'], spy['is_online'])
+    start_chat(spy["name"], spy['age'], spy['rating'], spy['is_online'])
 elif (existing.upper() == "N"):
     # user wants to continue as new user
-    spy['name'] = raw_input("Provide your name here :")
+    spy["name"] = raw_input("Provide your name here :")
     # chek wether spy has input something or not
     if len(spy['name']) > 0:
         spy['salutation'] = raw_input("What should we all you ? : ")
