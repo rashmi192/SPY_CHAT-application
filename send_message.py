@@ -1,32 +1,44 @@
 #import statements
-from select_friend import select_friend
+from select_friend import select_a_friend
+from spy_details import ChatMessage,friends
+from termcolor import colored
+# import steganography from library
 from steganography.steganography import Steganography
-from datetime import datetime
-from globals import friends
+# Function to send a secret message
+def send_a_message():
+    # Select a friend to whom you want to send and receive msgs  with
+    friend_choice = select_a_friend()
 
-def send_message():
-    # choose a friend from the list.
-    friend_choice = select_friend()
+    # Select the image in which you want to write a secret message
+    while True:
+        original_image = raw_input("What is the name of the image?:- ")
+        if len(original_image) >0:
 
-    # prepare the message
-    original_image = raw_input("Provide the name of the image to hide the message : ")
-    output_image = raw_input("Provide the name of the output image  : ")
-    text = raw_input("Enter your message here : ")
-    if len(text)==0 :
-        print "<---NO MESSAGE,TRY AGAIN & WRITE SOMETHING--->"
-    else:
-        # Encrypt the message
-        Steganography.encode(original_image, output_image, text)
+            # the output path of the image where the message is stored
+            while True:
+                output_path = raw_input("Provide the name of the output image :-")
+                if len(output_path) > 0:
+                    #write the secret message
+                    while True:
+                        text = raw_input("Enter your secret message:- ")
+                        if len(text) > 0:
+                            # The library steganography that helps to encode the message
+                            Steganography.encode(original_image, output_path, text)
 
-        # Successful message
-        print "Your message encrypted successfully."
+                            # The text message wil be stored in chat messages
+                            new_chat = ChatMessage(text, True)
 
-        #save chats
-        new_chat={
-            'message': text ,
-            'date': datetime.now(),
-            'send_be_me':True
+                            # Along with the name of the friend we add the message
+                            friends[friend_choice].chats.append(new_chat)
 
-        }
-        friends[friend_choice]['chats'].append(new_chat)
-        print "your secret message is ready"
+                            # After the encoding is done the message is ready.
+                            print(colored("Your secret message image is ready!", "cyan"))
+                            #returning back to menu choice
+                            return new_chat
+
+                        else:
+                            print(colored('Secret message cannot be blank!', 'red'))
+                else:
+                    print(colored('Output image cannot be blank!', 'red'))
+        else:
+            print(colored('Input Image cannot be blank!','red'))
