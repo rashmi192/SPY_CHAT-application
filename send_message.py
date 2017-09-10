@@ -16,7 +16,7 @@ def send_a_message():
 
             # the output path of the image where the message is stored
             while True:
-                output_path = raw_input("Provide the name of the output image :-")
+                output_path = raw_input("Provide the name of the output image :- ")
                 if len(output_path) > 0:
                     #write the secret message
                     while True:

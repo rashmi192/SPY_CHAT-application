@@ -1,10 +1,10 @@
-#import statements
+#IMPORT STATEMENT
 from globals import STATUS_MESSAGES
 from spy_details import spy
 from termcolor import colored
-#for adding or updating new status or old status
+#<-------------TO ADD STATUS------------->
 def add_status():
-    # in begining having no status
+    # in the beginning no status message
     updated_status_message = None
 
     # check if current status message is set or not
@@ -13,56 +13,53 @@ def add_status():
     else:
         print 'You don\'t have any status message currently \n'
 
-        # Asking if the user wants to select a default status or a status which is already present
-        default = raw_input("Do you want to select from the older status (y/n)? ")
+    # Asking if the user wants to select a default status or a status which is already present
+    default = raw_input("Do you want to select from the older status (y/n)?:- ")
 
-        # A spy wants to add another status rather from the existing one
-        # .upper() converts from any case to upper case
-        if default.upper() == "N":
-                # ask the user to enter a new status
-                while True:
-                    new_status_message = raw_input("What status message do you want to set?:- ")
+    # A spy wants to add another status rather from the existing one
+    # .upper() converts from any case to upper case
+    if default.upper() == "N":
+        # ask the user to enter a new status
+        new_status_message = raw_input("What status message do you want to set?:- ")
 
-                    # if valid status message is entered
-                    if len(new_status_message) > 0:
-                        # in the existing status list add the new status
-                        STATUS_MESSAGES.append(new_status_message)
-                        # variable update
-                        updated_status_message = new_status_message
-                    else:
-                        print(colored('status message cannot be blank','red'))
+        # if valid status message is entered
+        if len(new_status_message) > 0:
+            # in the existing status list add the new status
+            STATUS_MESSAGES.append(new_status_message)
+            # variable update
+            updated_status_message = new_status_message
 
-                # A spy wants to choose from the existing status
-        elif default.upper() == 'Y':
+    # A spy wants to choose from the existing status
+    elif default.upper() == 'Y':
 
-                    # To give an index number to the statuses
-                    item_position = 1
+        # To give an index number to the statuses
+        item_position = 1
 
-                    # To show all the default statuses so that the user can select
-                    for message in STATUS_MESSAGES:
-                        print(colored('%d. %s' % (item_position, message),'green'))
-                        item_position = item_position + 1
+        # To show all the default statuses so that the user can select
+        for message in STATUS_MESSAGES:
+            print (colored('%d. %s' % (item_position, message),'green'))
+            item_position = item_position + 1
 
-                    # Ask the user which index of the list he wants to choose.
-                    message_selection = int(raw_input("\nChoose the index of the status: "))
+        # Ask the user which index of the list he wants to choose.
+        message_selection = int(raw_input("\nChoose the index of the status:- "))
 
-                    # Check if the position exists and then only set it
-                    if len(STATUS_MESSAGES) >= message_selection:
-                        # Variable update
-                        updated_status_message = STATUS_MESSAGES[message_selection - 1]
+        # Check if the position exists and then only set it
+        if len(STATUS_MESSAGES) >= message_selection:
+            # Variable update
+            updated_status_message = STATUS_MESSAGES[message_selection - 1]
 
-            # When the user chooses neither yes nor no
-        else:
-                print (colored('The option you choose is not valid! Press either y or n.', 'red'))
+    # When the user chooses neither yes nor no
+    else:
+        print (colored('The option you chose is not valid! Press either y or n.','red'))
 
-        # When the status message is updated
-        if updated_status_message:
-                print (colored('Your updated status message is:','cyan'))
-                print(colored(updated_status_message, 'cyan'))
+    # When the status message is updated
+    if updated_status_message:
+        print (colored('Your updated status message is:','cyan'))
+        print(colored(updated_status_message, "cyan"))
 
-                # When it is not updated
-        else:
-                print(colored('You did not update your status message', 'red'))
+    # When it is not updated
+    else:
+        print(colored('You did not update your status message','red'))
 
-                # The updated message will be read
-                return updated_status_message
+    # The updated message will be read
+    return updated_status_message

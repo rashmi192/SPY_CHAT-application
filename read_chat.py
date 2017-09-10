@@ -13,15 +13,15 @@ def read_chat():
     for chat in friends[read_for].chats:
         if chat.sent_by_me:#when True
             # The date and time is printed in blue
-            print(colored(str(chat.time.strftime("%d %B %Y %A %H:%M")) + ",", 'blue')),
+            print(colored(str(chat.time.strftime("%d %B %Y %A %H:%M")) + ",", 'magenta')),
             # The message is printed in red
-            print(colored("You said:", 'red')),
+            print(colored("You said:", 'yellow')),
             # black is by default
             print str(chat.message)
         else:#when False
             # The date and time is printed in blue
-            print(colored(str(chat.time.strftime("%d %B %Y %A %H:%M")) + ",", 'blue')),
+            print(colored(str(chat.time.strftime("%d %B %Y %A %H:%M")) + ",", 'magenta')),
             # The message is printed in red
-            print(colored(str(friends[read_for].name) + " said:", 'red')),
+            print(colored(str(friends[read_for].name) + " said:", 'yellow')),
             # Black color is by default
             print str(chat.message)

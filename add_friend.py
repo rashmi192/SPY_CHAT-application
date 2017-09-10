@@ -6,35 +6,43 @@ from spy_details import spy
 def add_friend():
     # Using the class spy
     new_friend = Spy(" ", " ", 0, 0.0)
-    new_friend.name = raw_input("Please add your friend's name:- ")
-    new_friend.salutation = raw_input("Are they Mr. or Ms. ?:- ")
+    while True:
+        new_friend.name = raw_input("Please add your friend's name:- ")
+        if len(new_friend.name)>0:
+            while True:
+                new_friend.salutation = raw_input("Are they Mr. or Ms. ?:- ")
+                if len(new_friend.salutation)>0:
+                    if (new_friend.salutation == 'ms.' or new_friend.salutation == 'Ms.' or new_friend.salutation == "Mr." or new_friend.salutation == "mr."):
+                        # ask for the age of the friend
+                        while True:
+                            new_friend.age = raw_input("Age?:- ")
 
-    # ask for the age of the friend
-    new_friend.age = raw_input("Age?:- ")
-    # Type casting to integer
-    new_friend.age = int(new_friend.age)
+                            # Type casting to integer
+                            if len(new_friend.age) > 0:
+                                new_friend.age = int(new_friend.age)
+                                if 18 < new_friend.age < 50:
+                                        # After the conditions are satisfied the friend will be added
+                                        friends.append(new_friend)
+                                        print(colored('FRIEND ADDED!', "magenta"))
 
-    # Ask for the rating of the friend
-    new_friend.rating = raw_input("Spy rating?:- ")
-    # Type casting to float
-    new_friend.rating = float(new_friend.rating)
+                                else:
+                                        print (colored("Sorry but your age is not valid for spy!", 'red'))
+                                        print(colored("       THANK YOU!       ", 'yellow'))
+                                        exit()
+                                return len(friends)
+                                        #application will terminate
+                                                # The no of friends the spy has will be returned.
+                                             # The no of friends the spy has will be returned.
+                            else:
+                                    print (colored("Sorry but age cannot be blank!", 'red'))
 
-    # Add a friend of correct age and equal or higher rating
-    # Valid name of strings must be entered
-    if (len(new_friend.name) > 0 and new_friend.name.isdigit() == False and 12 < new_friend.age < 50 ):
-        if (new_friend.salutation== 'ms.' or new_friend.salutation=='Ms.'or new_friend.salutation=="Mr."or new_friend.salutation=="mr."):
 
 
-            # After the conditions are satisfied the friend will be added
-            friends.append(new_friend)
-            print(colored('FRIEND ADDED!', "yellow"))
+                        # The no of friends the spy has will be returned.
+                    else:
+                        print(colored('Please enter valid salutation!', 'red'))
+                else:
+                    print(colored('Salutation cannot be blank!','red'))
         else:
-            print(colored("NO FRIEND ADDED..!!.Salutation input error...WRITE(Ms./Mr./ms./mr.)", "red"))
-
-        # The no of friends the spy has will be returned.
-        return len(friends)
-    else:
-        print(colored("Sorry NO FRIEND ADDED ,input spy details are wrong", "red"))
-
-    # The no of friends the spy has will be returned.
-    return len(friends)
+            print(colored('Name cannot be blank!','red'))
+            return len(friends)
